@@ -2,7 +2,7 @@ TODO
 ---
 
  *- strip react stuff and base code, package.json, rename tproject, etc.
- - add dependencies for game dev
+ *- add dependencies for game dev
  - write some very basic code for scene graph
 
  - get basic scene graph working (on click, toggle scenes)
@@ -17,3 +17,7 @@ TODO
 
  - I need to start the art! There well be a LOT
 	- search for a montreal sprite sheet, or mcgill sprite sheet
+
+Things to build:
+ - effect-tick needs environments, like you may want to pause the game, but keep a pause screen animating frames, which could use effect-tick
+	~ maybe environment ids "game" "pause"
