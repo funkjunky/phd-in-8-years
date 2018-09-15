@@ -4,6 +4,29 @@ TODO
  *- strip react stuff and base code, package.json, rename tproject, etc.
  *- add dependencies for game dev
  - write some very basic code for scene graph
+	*- global reducer "state.game" (month/day, money, happiness, self-deprecation, etc)
+	*- each scene graph well have draw, reducer, controls, onload(opts), onunload
+	*- scene.draw (give scene state, and global state as separate things)
+	- create enough scenes to figure out the rest of below...
+		*- sidewalk
+		- bedroom
+		- pause
+		- transition -> [LeaveHome] toast > tooth brush > backpack > pan sun or clouds and fade in sidewalk scene
+	- 
+
+	- how to unload and load reducer?
+		- state.scenes["lab"]
+		- scene.load => add reducer, scene.unload => remove reducer
+	- how to unload and load controls? (Need scene class)
+		- scene.addEventListener -> scene.unload => scene.removeEventListener
+	- pause screen is "pushed" onto another screen.
+	- lab scene replaces sidewalk scene...
+		- push transition scene
+			- (lens flare, blizzard snow, zoom in and out of umbrella on Jane)
+		- replace lab scene with sidewalk scene
+		- pop transition scene
+
+ - Put in Immer
 
  - get basic scene graph working (on click, toggle scenes)
  - Plan outline of game in this TODO
@@ -21,3 +44,5 @@ TODO
 Things to build:
  - effect-tick needs environments, like you may want to pause the game, but keep a pause screen animating frames, which could use effect-tick
 	~ maybe environment ids "game" "pause"
+
+ - play with the oscillator, try to make sound effects and music!

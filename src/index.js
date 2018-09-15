@@ -4,7 +4,7 @@ import { createYieldEffectMiddleware } from 'redux-yield-effect';
 import { addTick } from 'effect-tick';
 import { tickMiddleware, resumeTicks, pauseTicks } from 'effect-tick';
 
-import reducer from './reducer';
+import gameReducer from './gameReducer';
 import graphics from './graphics';
 import './index.css';
 
