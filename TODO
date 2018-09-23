@@ -17,8 +17,14 @@ TODO
  *- add drawText and drawRect to webglcanvas file
  *- push first scene
  *- Figure out reducers...
- - get room.png displaying
- - get the bedroom showing
+ *- get room.png displaying
+ *- get player showing in bedroom
+
+ *- get bump working to switch frames (and then scene controls well work)
+ - implement immer.js for all data going through redux
+
+ - just do trailer or art or whatever... Not enough time, gotta prepare for interview
+
 
  - How do I push and pop reducers??
  - ensure all features of scene are handled appropriately
@@ -30,8 +36,6 @@ TODO
  - push sidewalk scene and ensure that shows
  - animate shitty character
  - add transition between bedroom and sidewalk [just black rect fade]
-
- - implement immer.js for all data going through redux
 
  - implement movement for player, including scrolling the environment.
 

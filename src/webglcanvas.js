@@ -3,7 +3,7 @@
 //~   rotateCamera                ~//
 //~   translateCamera             ~//
 //~   drawImage                   ~//
-//~   drawSprite                  ~//
+//~   drawFrame                   ~//
 //~   clear                       ~//
 
 // TODO: add transactions. So the camera can be put anywhere and it'll always be handled first.
@@ -35,7 +35,11 @@ export const drawImage = (ctx, image, sx, sy, sWidth, sHeight, dx, dy, dWidth, d
   ctx.translate(dx + dWidth / 2, dy + dHeight / 2);
   ctx.rotate(rotation);
   ctx.translate(-dWidth / 2, dHeight / 2);
-  ctx.drawImage(image, sx, sy, sWidth, sHeight, dx ? 0 : undefined, dy ? 0 : undefined, dWidth, dHeight);
+  if (typeof dx !== 'undefined') {
+    ctx.drawImage(image, sx, sy, sWidth, sHeight, dx, dy, dWidth, dHeight);
+  } else {
+    ctx.drawImage(image, sx, sy, sWidth, sHeight);
+  }
   ctx.restore();
 };
 
@@ -43,8 +47,28 @@ export const drawImage = (ctx, image, sx, sy, sWidth, sHeight, dx, dy, dWidth, d
 // This is a convinience function for drawImage.
 // It should lessen the arguments when calling drawImage given a source from a spritesheet.
 // Note: rotation was put ahead of dWidth and dHeight, because it's more likely to be set than dWidth and dHeight.
-export const drawSprite = (ctx, { image, sx, sy, sWidth, sHeight }, dx, dy, rotation, dWidth, dHeight) =>
+export const drawFrame = (ctx, { image, sx, sy, sWidth, sHeight }, dx, dy, rotation, dWidth = sWidth, dHeight = sHeight) =>
   drawImage(ctx, image, sx, sy, sWidth, sHeight, dx, dy, dWidth, dHeight, rotation)
+
+export const getFrames = (image, sWidth, sHeight, count=999999, startX = 0, startY = 0) => {
+  let frames = [];
+  let sx = startX;
+  let sy = startY;
+  while((!image.width || sx + sWidth <= image.width) && --count >= 0) {
+    frames.push({ image, sx, sy, sWidth, sHeight });
+
+    // shift one frame to the right.
+    sx += sWidth;
+
+    // if we're over the right margin, then move to the next row
+    if (image.width && sx + sWidth > image.width) {
+      sx = 0;
+      sy += sHeight;
+    }
+  }
+
+  return frames;
+};
 
 export const drawText = (ctx, text, x, y, colour='black') => {
   ctx.save();

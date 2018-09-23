@@ -10,6 +10,7 @@ import graphics from './graphics';
 // TODO: I should be able to do absolute paths... I don't like using ./ unless it makes sense.
 import Bedroom from 'scenes/Bedroom/index.js';
 import Pause from 'scenes/Pause/index.js';
+import getTexture from 'getTexture';
 import './index.css';
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -26,11 +27,14 @@ document.addEventListener('DOMContentLoaded', () => {
   const scenes = [new Bedroom(store)];
   // TODO: is there a better way than updateReducers
   updateReducers(store, scenes);
+
   store.dispatch(resumeTicks());
 
   let ctx = canvas.getContext('2d');
+  let lastDt = 0;
   const step = dt => {
-    graphics(ctx, scenes, store.getState(), dt);
+    graphics(ctx, scenes, store.getState(), dt - lastDt);
+    lastDt = dt;
     window.requestAnimationFrame(step);
   };
   window.requestAnimationFrame(step);
@@ -51,11 +55,6 @@ const updateReducers = (store, scenes) => {
   const sceneReducers = {};
   scenes.forEach(({ name, getReducer }) => sceneReducers[name] = getReducer());
   store.replaceReducer(combineReducers({ game, scenes: combineReducers(sceneReducers) }));
-};
-
-const preloadImage = src => {
-  let i = new Image();
-  i.src = src;
 };
 
 registerServiceWorker();

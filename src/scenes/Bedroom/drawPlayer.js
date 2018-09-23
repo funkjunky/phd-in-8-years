@@ -1,4 +1,5 @@
 import getTexture from 'getTexture';
-import { drawImage } from 'webglcanvas';
+import { drawFrame, getFrames } from 'webglcanvas';
 
-export default ctx => drawImage(ctx, getTexture('player.png'), 100, 100, 64, 64);
+const playerFrames = getFrames(getTexture('player.png'), 64, 64, 2);
+export default (ctx, state) => drawFrame(ctx, playerFrames[state.bumps % 2], 100, 100);

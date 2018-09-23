@@ -1,4 +1,5 @@
 const initialState = {
+  bumps: 0
 };
 
 export const bumpAwake = () => ({
@@ -6,5 +7,13 @@ export const bumpAwake = () => ({
 });
 
 export default (state = initialState, action) => {
-  return state;
+  switch(action.type) {
+    case 'BUMP_AWAKE':
+      return {
+        ...state,
+        bumps: ++state.bumps,
+      };
+    default:
+      return state;
+  }
 }
