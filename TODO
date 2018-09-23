@@ -9,10 +9,39 @@ TODO
 	*- scene.draw (give scene state, and global state as separate things)
 	- create enough scenes to figure out the rest of below...
 		*- sidewalk
-		- bedroom
-		- pause
+		*- bedroom (simple, any keyup transitions)
+		*- pause
+
+ *- make sure bedroom has a light background to see black text
+ *- transfer sprites from ipad to laptop
+ *- add drawText and drawRect to webglcanvas file
+ *- push first scene
+ *- Figure out reducers...
+ - get room.png displaying
+ - get the bedroom showing
+
+ - How do I push and pop reducers??
+ - ensure all features of scene are handled appropriately
+ - add my new graphics
+ - add pushing of pause scene with p button (including reducer if exists)
+ - add text displaying the current date in a nice font in white
+ - get pause screen working
+ - fill in sidewalk scene
+ - push sidewalk scene and ensure that shows
+ - animate shitty character
+ - add transition between bedroom and sidewalk [just black rect fade]
+
+ - implement immer.js for all data going through redux
+
+ - implement movement for player, including scrolling the environment.
+
+
+
+
+		- how to push pause screen on to scenes
 		- transition -> [LeaveHome] toast > tooth brush > backpack > pan sun or clouds and fade in sidewalk scene
-	- 
+
+	- how to push transitions and pop old scenes. 
 
 	- how to unload and load reducer?
 		- state.scenes["lab"]
@@ -28,6 +57,9 @@ TODO
 
  - Put in Immer
 
+ - effect-tick needs environments, like you may want to pause the game, but keep a pause screen animating frames, which could use effect-tick
+	~ maybe environment ids "game" "pause"
+
  - get basic scene graph working (on click, toggle scenes)
  - Plan outline of game in this TODO
 
@@ -41,8 +73,7 @@ TODO
  - I need to start the art! There well be a LOT
 	- search for a montreal sprite sheet, or mcgill sprite sheet
 
+
 Things to build:
- - effect-tick needs environments, like you may want to pause the game, but keep a pause screen animating frames, which could use effect-tick
-	~ maybe environment ids "game" "pause"
 
  - play with the oscillator, try to make sound effects and music!

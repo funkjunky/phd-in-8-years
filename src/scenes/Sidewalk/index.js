@@ -4,6 +4,8 @@ import weather, { setWeather } from './weather';
 import drawPlayer from './player/drawPlayer';
 
 export default class Sidewalk extends Scene {
+  name = 'sidewalk';
+
   constructor(store) {
     this.super(store);
 
@@ -25,7 +27,7 @@ export default class Sidewalk extends Scene {
     }
   }
 
-  getReducer => combineReducers({
+  getReducer = () => combineReducers({
     player,
     weather,
   });
