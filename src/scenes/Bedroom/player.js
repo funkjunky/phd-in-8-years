@@ -1,3 +1,5 @@
+import produce from 'immer';
+
 const initialState = {
   bumps: 0
 };
@@ -9,10 +11,10 @@ export const bumpAwake = () => ({
 export default (state = initialState, action) => {
   switch(action.type) {
     case 'BUMP_AWAKE':
-      return {
-        ...state,
-        bumps: ++state.bumps,
-      };
+      return produce(state, draftState => {
+        ++draftState.bumps;
+        return draftState;
+      });
     default:
       return state;
   }

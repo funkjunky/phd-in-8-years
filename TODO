@@ -21,10 +21,32 @@ TODO
  *- get player showing in bedroom
 
  *- get bump working to switch frames (and then scene controls well work)
- - implement immer.js for all data going through redux
+ *- implement immer.js for all data going through redux
 
  - just do trailer or art or whatever... Not enough time, gotta prepare for interview
+	*- Jane facing camera
+	*- black silhoutte of Jane facing camera
+	*- Jane walking uphill animation
+	- commit and push
+	- transfer images over to laptop using airdrop
+	- look up ppl for interview and company
 
+
+	- Create a new scene "evolution"
+	- add jane facing camera summer
+	- keyup, dispatch generator...
+		- tick, increment chance to show silhoutte, then choose whether to show silhoutte
+			- show text "Jane is evolving..."
+		- After 2 seconds for tick, return true
+		- dispatch show-evolved [showing winter jane, and "Jane has evolved into Dr. Jie Jane Zhang phD"]
+		- onkey up if show-evolved, then show-coming-soon = true
+		- draw extra text 'This winter look forward to the exciting life of the mundane in...'
+		- show-coming-soon-final = true
+		- draw "phD in 8 years!"
+		- also draw sushi, oysters, and burger images
+
+	- sushi, oysters, and burger static images
+	[old jane] [food] [sunhat slightly larger jane]
 
  - How do I push and pop reducers??
  - ensure all features of scene are handled appropriately
